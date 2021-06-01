@@ -1,16 +1,16 @@
 // To parse this JSON data, do
 //
-//     final welcome = welcomeFromJson(jsonString);
+//     final Video = VideoFromJson(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<Welcome> welcomeFromJson(String str) => List<Welcome>.from(json.decode(str).map((x) => Welcome.fromJson(x)));
+List<Video> videoFromJson(String str) => List<Video>.from(json.decode(str).map((x) => Video.fromJson(x)));
 
-String welcomeToJson(List<Welcome> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String videoToJson(List<Video> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Welcome {
-  Welcome({
+class Video {
+  Video({
     required this.id,
     required this.videoUrl,
     required this.name,
@@ -39,10 +39,10 @@ class Welcome {
   String fileNameOriginal;
   String popularity;
   String categoryId;
-  Category category;
+  String category;
   String keywords;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory Video.fromJson(Map<String, dynamic> json) => Video(
     id: json["id"],
     videoUrl: json["video_url"],
     name: json["name"],
@@ -77,7 +77,7 @@ class Welcome {
   };
 }
 
-enum Category { CRAFT, DANCE, ART }
+
 
 
 
