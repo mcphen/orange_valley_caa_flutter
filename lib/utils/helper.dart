@@ -35,3 +35,19 @@ List<Video> getFakeVideos() {
         keywords: "air,France,French,outdoors,painting,plein,watercolor", categoryId: '', videoUrl: '', createdBy: '', category: '', fileNameOriginal: '', image: '', cropped: '', duration: '', popularity: '', id: ''),
   ];
 }
+
+// VideoSort ne permettra d'avoir
+// qu'une des 3 valeurs qu'il énumère
+enum VideoSort {
+  id, name, duration
+  // par ex. pour avoir le nom on fera VideoSort.name
+}
+
+// ajoute de nouvelle fonctionnalité à l'enum VideoSort
+extension ParseEnumName on VideoSort {
+  String filterName() {
+    // Si on a par ex. "VideoSort.duration"
+    // on ne retourne que la partie à droite du point
+    return this.toString().split('.').last;
+  }
+}
